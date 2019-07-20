@@ -1,0 +1,68 @@
+/**
+  ******************************************************************************
+  * @file    main.c
+  * @author  Ac6
+  * @version V1.0
+  * @date    01-December-2013
+  * @brief   Default main function.
+  ******************************************************************************
+*/
+
+
+#include "stm32f4xx.h"
+#include "task.h"
+//#include "FreeRTOS.h"
+
+//TaskHandle_t xTaskHandle1 = NULL;
+//TaskHandle_t xTaskHandle2 = NULL;
+
+//void vTask1_handler(void *params);
+//void vTask2_handler(void *params);
+
+int main(void)
+{
+	/**
+	  * @brief  Resets the RCC clock configuration to the default reset state.
+	  * @note   The default reset state of the clock configuration is given below:
+	  *            - HSI ON and used as system clock source
+	  *            - HSE, PLL and PLLI2S OFF
+	  *            - AHB, APB1 and APB2 prescaler set to 1.
+	  *            - CSS, MCO1 and MCO2 OFF
+	  *            - All interrupts disabled
+	  * @note   This function doesn't modify the configuration of the
+	  *            - Peripheral clocks
+	  *            - LSI, LSE and RTC clocks
+	  * @param  None
+	  * @retval None
+	  */
+	// HSI = 16 MHz, hence System clock = 16 MHz
+	RCC_DeInit();
+
+	// Updates SystemCoreClock variable
+	SystemCoreClockUpdate();
+
+	// Create 2 tasks, task-1 and task-2
+
+//	xTaskCreate(vTask1_handler, "Task-1", 32, configMINIMAL_STACK_SIZE, NULL, 2, &xTaskHandle1);
+//	xTaskCreate(vTask2_handler, "Task-2", 32, configMINIMAL_STACK_SIZE, NULL, 2, &xTaskHandle2);
+
+	/*	BaseType_t xTaskCreate(	TaskFunction_t pxTaskCode,					// Mentions the name of the task function here
+								const char * const pcName,					// Give a descriptive name for the task e.g. "sensorDG"
+								const configSTACK_DEPTH_TYPE usStackDepth,	// Stack size for this tasks(in words)
+								void * const pvParameters,					// Parameter to pass the pointer of the data to the task function
+								UBaseType_t uxPriority,						// Priority of the task
+								TaskHandle_t * const pxCreatedTask )*/		// Handle of the task. Pointer to the created task in the memory
+	for(;;);
+
+
+}
+
+/*void vTask1_handler(void *params)
+{
+
+}
+
+void vTask2_handler(void *params)
+{
+
+}*/
